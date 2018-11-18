@@ -23,7 +23,8 @@ rmconf: $(POWTER_SERVER_CONF)
 
 genconf: $(POWTER_SERVER_INFO) mkconf cleanconf
 	./confmgr.py divideinfo --info $(POWTER_SERVER_INFO) --dns $(DNS_INFO) --sskcp $(SSKCP_INFO)
-	cd $(DNS_CONFGEN) && python3 -m confgenerator.cli $(DNS_INFO) -d $(POWTER_SERVER_CONF)/dnsconf
+	mkdir $(POWTER_SERVER_CONF)/dnsconf
+	cd $(DNS_CONFGEN) && python3 -m confgenerator.cli -f $(DNS_INFO) -d $(POWTER_SERVER_CONF)/dnsconf
 	cd $(SSKCP_CONFGEN) && python3 -m confgenerator.cli server -f $(SSKCP_INFO) -d $(POWTER_SERVER_CONF)/sskcpconf
 
 

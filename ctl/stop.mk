@@ -5,7 +5,7 @@ include ${CONFIG_ENV}
 
 .PHONY: stop stop-dns stop-sskcp
 
-stop: stop-dns stop-sskcp
+stop: stop-sskcp stop-dns
 
 stop-dns: $(POWTER_SERVER_CONF)/dnsconf $(DNS_API)
 	make -C $(DNS_API) stop NAME=$(PROJ)-dns

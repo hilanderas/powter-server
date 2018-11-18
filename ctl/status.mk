@@ -5,7 +5,7 @@ include ${CONFIG_ENV}
 
 .PHONY: status status-dns status-sskcp
 
-status: status-dns status-sskcp
+status: status-sskcp status-dns
 
 status-dns: $(POWTER_SERVER_CONF)/dnsconf $(DNS_API)
 	make -C $(DNS_API) status NAME=$(PROJ)-dns || true
@@ -17,7 +17,7 @@ status-sskcp: $(POWTER_SERVER_CONF)/sskcpconf $(SSKCP_API)
 .PHONY: showconf
 showconf: showconf-dns showconf-sskcp
 showconf-dns: $(POWTER_SERVER_CONF)/dnsconf
-	cat $(POWTER_SERVER_CONF)/dnsconf/dns-server.conf
+	cat $(POWTER_SERVER_CONF)/dnsconf/config.env
 
 confs = $(shell ls $(POWTER_SERVER_CONF)/sskcpconf)
 showconf-sskcp: $(POWTER_SERVER_CONF)/sskcpconf

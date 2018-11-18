@@ -5,10 +5,10 @@ include ${CONFIG_ENV}
 
 .PHONY: start start-dns start-sskcp
 
-start: start-dns start-sskcp
+start:  start-sskcp start-dns
 
 start-dns: $(POWTER_SERVER_CONF)/dnsconf $(DNS_API)
-	make -C $(DNS_API) config CONFIG=$(POWTER_SERVER_CONF)/dnsconf NAME=$(PROJ)-dns && make -C $(DNS_API) start NAME=$(PROJ)-dns
+	make -C $(DNS_API) config CONFIG_ENV=$(POWTER_SERVER_CONF)/dnsconf/config.env NAME=$(PROJ)-dns && make -C $(DNS_API) start NAME=$(PROJ)-dns
 
 confs = $(shell ls $(POWTER_SERVER_CONF)/sskcpconf)
 start-sskcp: $(POWTER_SERVER_CONF)/sskcpconf $(SSKCP_API)

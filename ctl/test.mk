@@ -40,7 +40,7 @@ is-info-existed:
 
 .PHONY: test-files test-server-dir
 test-files: test-dns test-sskcp is-info-existed
-test-server-dir: is-info-existed
+test-server-dir:
 	((test -d $(SRC_DIR)) && echo "$(SRC_DIR) exists") || (echo "$(SRC_DIR) does NOT exist") 
 
 .PHONY: test-dns test-sskcp
@@ -49,11 +49,11 @@ test-sskcp: is-sskcp-image-existed is-sskcp-confgen-existed is-sskcp-api-existed
 
 
 
-.PHONY: test-config test-restore
+.PHONY: test-config test-restore test-remove
 test-config: $(POWTER_SERVER_CONF)
 	tree $(POWTER_SERVER_CONF)
 
 test-restore:
 	((test -d $(POWTER_SERVER_CONF)) && echo "$(POWTER_SERVER_CONF) exists") || (echo "$(POWTER_SERVER_CONF) does NOT exist") 
 
-
+test-remove: test-server-dir is-info-existed is-dns-image-existed is-sskcp-image-existed
