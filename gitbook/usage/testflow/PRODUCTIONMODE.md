@@ -52,6 +52,28 @@ make test_install INFO=$PWD/info.yml
 make test_uninstall
 ```
 
+* Install after uninstall
+```bash
+make test_installafteruninstall
+```
+
+* Reinstall
+```bash
+make test_reinstall
+```
+
+* Reuninstall
+```bash
+make test_reuninstall
+```
+
+* Test other scenarios
+	* test_before_reboot  
+	* test_after_reboot 
+	* test_restartall 
+	* test_updateconf_dns 
+	* test_updateconf_sskcp
+	* test_checkconfig
 
 * Clean up
 ```bash

@@ -27,7 +27,7 @@ e.g,
 ```bash
 make init_config PROJ=/home/qa/powter-server/ctl
 ```
-
+n
 ### Run test flow
 * Preparation before test
 ```bash
@@ -42,32 +42,33 @@ make test_install
 ```
 
 * Uninstall
-
-	Update `/home/USER` in default info.yml 
 ```bash
 make test_uninstall
 ```
 
-* Install after uninstall
 
-	Update `/home/USER` in default info.yml 
+* Install after uninstall
 ```bash
 make test_installafteruninstall
 ```
 
 * Reinstall
-
-	Update `/home/USER` in default info.yml 
 ```bash
 make test_reinstall
 ```
 
 * Reuninstall
-
-	Update `/home/USER` in default info.yml 
 ```bash
 make test_reuninstall
 ```
+
+* Test other scenarios
+	* test_before_reboot  
+	* test_after_reboot 
+	* test_restartall 
+	* test_updateconf_dns 
+	* test_updateconf_sskcp
+	* test_checkconfig
 
 
 * Clean up
