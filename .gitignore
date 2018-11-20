@@ -1,2 +1,6 @@
 .dns-info.yml
 .sskcp-info.yml
+powter-server*.zip
+ctl/server
+powter-server-testflow
+powter-server

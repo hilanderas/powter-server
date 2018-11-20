@@ -5,49 +5,25 @@
 
 ### `info` template 
 ```yml
-dnsmasq: 
-  dhcp-range: 192.168.0.5,192.168.0.150,12h
-  dhcp-option: 6,192.168.0.1
-  cache-size: 3000
-  domain: powter
-  local: /powter
-  dns-server:
-    - ip: 1.1.1.1
-      ports:
-        start-port: 16350
-        end-port: 16370
-    - ip: 2.2.2.2
-      ports:
-        start-port: 16350
-        end-port: 16370
-bypass:
-  config:
-    lan: br0
-    base_port: 2010
-    number: 16  
-  white:
-    - filename: 03-vps
-      content:
-      - ip/net
-      - ip/net
-    - filename: 04-test
-      content:
-      - ip/net
-      - ip/net
+dns-proxy:
+  DNSPORT: 12345:12356
+  WAN: enp0s25
 sskcp:
-  - mode: sskcp/ss
-    logdir: ~/snmplog 
-    listenport: 2001
-    vpsip: 
-    vpsport: 
-    key:
-    dest: ~/conf 
+  server:
+  - key: test1
+    listenport: 7010
+    log-dir: /home/USER/log
+    mode: sskcp
+  - key: test2
+    listenport: 7020
+    log-dir: /home/USER/log
+    mode: sskcp
 ```
 `info` is yaml file and you can test whether it is ok after modification with:
 	
 ```
-cd powter-client
+cd powter-server
 make test_info INFO=path/to/info
 ```
 
-Detailed info about how to modify `info` of [dnsmasq](https://elespejo.github.io/dnsmasq/usage/GENCONF.html), [bypass](https://elespejo.github.io/bypass/usage/GENCONF.html), [sskcp](https://elespejo.github.io/sskcp/usage/GENCONF.html) 
+Detailed info about how to modify `info` of [dns-proxy](https://elespejo.github.io/dns-proxy/usage/GENCONF.html), [sskcp](https://elespejo.github.io/sskcp/usage/GENCONF.html) 

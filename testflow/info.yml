@@ -1,0 +1,13 @@
+dns-proxy:
+  DNSPORT: 12345:12356
+  WAN: enp0s25
+sskcp:
+  server:
+  - key: test1
+    listenport: 7010
+    log-dir: /home/USER/log
+    mode: sskcp
+  - key: test2
+    listenport: 7020
+    log-dir: /home/USER/log
+    mode: sskcp
