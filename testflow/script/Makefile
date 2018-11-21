@@ -49,11 +49,11 @@ test_remove:
 test_config: 
 	./config.sh
 
-startup:
+startup startup_again:
 	./config.sh
 	./start.sh
 
-cleanup:
+cleanup cleanup_again:
 	./stop.sh
 	./restore.sh
 
@@ -92,9 +92,9 @@ restart_sskcp:
 ifeq ($(TESTMODE),dev)
 test_install: startup status cleanup
 test_uninstall: startup cleanup
-test_installafteruninstall: startup cleanup startup status cleanup
-test_reinstall: startup startup status cleanup
-test_reuninstall: startup cleanup cleanup
+test_installafteruninstall: startup cleanup startup_again status cleanup_again
+test_reinstall: startup startup_again status cleanup
+test_reuninstall: startup cleanup cleanup_again
 test_after_reboot: status cleanup
 test_restartall:startup restart status cleanup
 test_updateconf_dns: startup test_config restart_dns status_dns cleanup
@@ -102,15 +102,16 @@ test_updateconf_sskcp: startup test_config restart_sskcp status_sskcp cleanup
 else ifeq ($(TESTMODE), prod)
 test_install: startup status functionality cleanup 
 test_uninstall: startup cleanup functionality 
-test_installafteruninstall: startup cleanup startup status functionality cleanup
-test_reinstall: startup startup status functionality cleanup
-test_reuninstall: startup cleanup cleanup
+test_installafteruninstall: startup cleanup startup status functionality cleanup_again
+test_reinstall: startup startup_again status functionality cleanup
+test_reuninstall: startup cleanup cleanup_again functionality 
 test_after_reboot: status functionality cleanup
 test_restartall:startup restart status functionality cleanup
 test_updateconf_dns: startup config restart_dns status_dns functionality cleanup
 test_updateconf_sskcp: startup config restart_sskcp status_sskcp functionality cleanup
-else 
-test_install: echo "Please set the env either dev or prod!"
+else
+test_install test_uninstall test_installafteruninstall test_reinstall test_reuninstall test_after_reboot test_restartall test_updateconf_dns test_updateconf_sskcp: 
+	echo "Please set test mode correctly!"
 endif
 
 .PHONY: test_checkconfig test_before_reboot
