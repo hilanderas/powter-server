@@ -102,13 +102,13 @@ test_updateconf_sskcp: startup test_config restart_sskcp status_sskcp cleanup
 else ifeq ($(TESTMODE), prod)
 test_install: startup status functionality cleanup 
 test_uninstall: startup cleanup functionality 
-test_installafteruninstall: startup cleanup startup status functionality cleanup_again
+test_installafteruninstall: startup cleanup startup_again status functionality cleanup_again
 test_reinstall: startup startup_again status functionality cleanup
 test_reuninstall: startup cleanup cleanup_again functionality 
 test_after_reboot: status functionality cleanup
 test_restartall:startup restart status functionality cleanup
-test_updateconf_dns: startup config restart_dns status_dns functionality cleanup
-test_updateconf_sskcp: startup config restart_sskcp status_sskcp functionality cleanup
+test_updateconf_dns: startup test_config restart_dns status_dns functionality cleanup
+test_updateconf_sskcp: startup test_config restart_sskcp status_sskcp functionality cleanup
 else
 test_install test_uninstall test_installafteruninstall test_reinstall test_reuninstall test_after_reboot test_restartall test_updateconf_dns test_updateconf_sskcp: 
 	echo "Please set test mode correctly!"
