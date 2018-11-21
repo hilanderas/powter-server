@@ -12,7 +12,7 @@ hint() {
 
 netflow() {
    
-	sudo iftop -i ${LAN} -NnP -t -s 1
+	sudo iftop -i ${IFACE} -NnP -t -s 10
 }
 
 confirm() {

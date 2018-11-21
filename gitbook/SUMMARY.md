@@ -1,6 +1,6 @@
 # SUMMARY
 
-* [Introduction](README.md)
+* [Introduction 0.1.1](README.md)
 
 ### Overview 
 * [Topology](usage/TOPOLOGY.md)

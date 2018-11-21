@@ -16,20 +16,20 @@ rm_download:
 .PHONY: config read_config init_config 
 config: 
 	sed -i '/PROJ/c\export PROJ=${PROJ}' ${LIB}
-	sed -i '/LAN/c\export LAN=${LAN}' ${LIB}
+	sed -i '/IFACE/c\export IFACE=${IFACE}' ${LIB}
 
 read_config:
 	cat ${LIB} | grep "PROJ"
-	cat ${LIB} | grep "LAN"
+	cat ${LIB} | grep "IFACE"
 
 init_config: 
 	sed -i '/PROJ/c\export PROJ=${PROJ}' ${LIB}
-	sed -i '/LAN/c\export LAN=br0' ${LIB}
+	sed -i '/IFACE/c\export IFACE=enp0s25' ${LIB}
 
 .PHONY: reset_env
 reset_env:
 	sed -i '/PROJ/c\export PROJ=' ${LIB}
-	sed -i '/LAN/c\export LAN=' ${LIB}
+	sed -i '/IFACE/c\export IFACE=' ${LIB}
 	sed -i '/TESTMODE/c\export TESTMODE=' ${LIB}
 	cat ${LIB}
 
@@ -69,6 +69,8 @@ status_sskcp:
 
 functionality:
 	./hint.sh
+	./netflow.sh
+
 showconf:
 	./showconf.sh
 
