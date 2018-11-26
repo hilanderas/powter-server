@@ -8,7 +8,7 @@ prepare:
 	make -f prepare.mk prepare
 remove:
 	make -f remove.mk remove
-remove-all:
+remove_all:
 	make -f remove.mk remove
 	make -f remove.mk remove-images
 config:
@@ -44,6 +44,10 @@ test_config:
 	make -s -f test.mk test-config
 	make -f status.mk showconf 
 
+test_start:
+	docker ps -a
+test_stop:
+	docker ps -a
 test_restore:
 	make -s -f test.mk test-restore
 
