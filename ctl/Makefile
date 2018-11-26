@@ -8,6 +8,9 @@ prepare:
 	make -f prepare.mk prepare
 remove:
 	make -f remove.mk remove
+remove-all:
+	make -f remove.mk remove
+	make -f remove.mk remove-images
 config:
 	make -f config.mk config
 restore:

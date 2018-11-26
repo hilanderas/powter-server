@@ -5,10 +5,10 @@ include ${CONFIG_ENV}
 ## download dns
 .PHONY: dl-dns-api dl-dns-confgen dl-dns-image download-dns
 dl-dns-api:
-	cd $(SRC_DIR) && wget $(DNS_API_URL) && unzip $(DNS_API_ZIP) 
+	./dlzip.sh $(DNS_API_ZIP) $(SRC_DIR) $(DNS_API_URL) $(DNS_API)
 
 dl-dns-confgen:
-	cd $(SRC_DIR) && wget $(DNS_CONFGEN_URL) && unzip $(DNS_CONFGEN_ZIP) 
+	./dlzip.sh $(DNS_CONFGEN_ZIP) $(SRC_DIR) $(DNS_CONFGEN_URL) $(DNS_CONFGEN)
 
 dl-dns-image:
 	docker pull $(DNS_IMAGE)
@@ -19,10 +19,10 @@ download-dns: dl-dns-api dl-dns-confgen dl-dns-image
 ## download sskcp
 .PHONY: dl-sskcp-api dl-sskcp-confgen dl-sskcp-image download-sskcp
 dl-sskcp-api:
-	cd $(SRC_DIR) && wget $(SSKCP_API_URL) && unzip $(SSKCP_API_ZIP)
+	./dlzip.sh $(SSKCP_API_ZIP) $(SRC_DIR) $(SSKCP_API_URL) $(SSKCP_API)
 
 dl-sskcp-confgen:
-	cd $(SRC_DIR) && wget $(SSKCP_CONFGEN_URL) && unzip $(SSKCP_CONFGEN_ZIP)
+	./dlzip.sh $(SSKCP_CONFGEN_ZIP) $(SRC_DIR) $(SSKCP_CONFGEN_URL) $(SSKCP_CONFGEN) 
 
 dl-sskcp-image:
 	docker pull $(SSKCP_IMAGE)
@@ -46,7 +46,10 @@ resetinfo: geninfo
 
 .PHONY: create-server
 create-server:
-	mkdir server
+ifeq (, $(wildcard $(SRC_DIR)))
+	mkdir $(SRC_DIR)
+endif
+
 .PHONY: prepare
 prepare: create-server download-apis download-confgens download-images geninfo
 
