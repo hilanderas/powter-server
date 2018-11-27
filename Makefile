@@ -5,7 +5,7 @@ DOCS=$(CURDIR)/docs
 TESTFLOW=$(project)-testflow
 
 .PHONY: build_book
-build_book: $(GITBOOK)
+build-book: $(GITBOOK)
 	gitbook build $(GITBOOK) $(DOCS)
 
 .PHONY: build
@@ -26,4 +26,8 @@ build-testflow:
 	zip -r $(TESTFLOW)-$(version).zip $(TESTFLOW)
 	rm -rf $(TESTFLOW)
 
+update-gitbook: $(GITBOOK)
+	sed -i s/$(PRE)/$(CUR)/g $(CURDIR)/gitbook/usage/testflow/PRODUCTIONMODE.md
+	sed -i s/$(PRE)/$(CUR)/g $(CURDIR)/gitbook/SUMMARY.md
 
+build-doc: update-gitbook build-book
