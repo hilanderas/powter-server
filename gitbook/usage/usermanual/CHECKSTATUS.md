@@ -14,8 +14,3 @@ make status_dns
 ```bash
 make status_sskcp
 ``` 
-
-* Check bypass service status, iptables after installation 
-```bash
-make status_bypass
-``` 
