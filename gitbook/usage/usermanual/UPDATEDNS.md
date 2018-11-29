@@ -8,19 +8,19 @@ There are 2 ways to do this:
 
 
 ### Modify info on line
-* Modify  `ip` in dns-server and save
+* Modify  `ip` in dns-server in `info` popped up and save
 ```bash
-make config
-```
-
-* Restart dns service
-```bash
-make restart_dns 
+make update
 ```
 
 * Check status
 ```bash
-make status_dns
+make status
+```
+
+* Check whether configuration is updated
+```bash
+make showconf
 ```
 
 ### Modify info file
@@ -28,17 +28,17 @@ make status_dns
 ```bash
 vi /path/to/info
 ```
-* Generate configuration
+* Update configuration
 ```bash
-make config INFO=/path/to/info INTERATION=no
-```
-
-* Restart dns service
-```bash
-make restart_dns 
+make update INFO=/path/to/info
 ```
 
 * Check status
 ```bash
-make status_dns
+make status
+```
+
+* Check whether configuration is updated
+```bash
+make showconf
 ```

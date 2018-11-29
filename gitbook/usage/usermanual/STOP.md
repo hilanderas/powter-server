@@ -1,6 +1,6 @@
 # Stop
 
-Keep `info`, `configuration` and `compose` 
+Keep `info`, `configuration`
 
 ### Stop all services
 ```
@@ -15,10 +15,5 @@ make stop_dns
 ### Stop sskcp
 ```
 make stop_sskcp 
-```
-
-### Stop bypass
-```
-make stop_bypass 
 ```
 
