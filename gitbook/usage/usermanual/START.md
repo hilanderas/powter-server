@@ -14,9 +14,3 @@ make start_dns
 ```
 make start_sskcp 
 ```
-
-### Start bypass
-```
-make start_bypass 
-```
-

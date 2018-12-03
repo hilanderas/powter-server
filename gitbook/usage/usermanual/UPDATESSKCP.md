@@ -8,39 +8,6 @@ There are 2 ways to do this:
 * Update `info` with file provided by user
 
 
-### Modify info on line
-* Modify  `vpsip`, `vpsport` and `key` in sskcp and save
-```bash
-make config
-```
+### [Modify info on line](UPDATEDNS.md)
 
-* Restart sskcp service
-```bash
-make restart_sskcp 
-```
-
-* Check status
-```bash
-make status_sskcp
-```
-
-### Modify info file
-* Modify  `vpsip`, `vpsport` and `key` in sskcp and save
-```bash
-vi /path/to/info
-```
-
-* Generate configuration
-```bash
-make config INFO=/path/to/info INTERATION=no
-```
-
-* Restart sskcp service
-```bash
-make restart_sskcp 
-```
-
-* Check status
-```bash
-make status_sskcp
-```
+### [Modify info file](UPDATEDNS.md)

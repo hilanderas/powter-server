@@ -15,10 +15,3 @@ make restart_dns
 make restart_sskcp 
 ```
 
-### Restart bypass
-```
-make restart_bypass 
-```
-
-
-
