@@ -4,28 +4,28 @@ include ${CONFIG_ENV}
 
 .PHONY: is-dns-image-existed is-sskcp-image-existed
 is-dns-image-existed: 
-	((test ! -z $(shell docker images -q $(DNS_IMAGE))) && echo "$(DNS_IMAGE) exists") || (echo "$(DNS_IMAGE) does NOT exist") 
+	./imageexisted.sh $(DNS_IMAGE) 
 
 is-sskcp-image-existed: 
-	((test ! -z $(shell docker images -q $(SSKCP_IMAGE))) && echo "$(SSKCP_IMAGE) does exist") || echo "$(SSKCP_IMAGE) does NOT exist"
+	./imageexisted.sh $(SSKCP_IMAGE)
 
 .PHONY: is-dns-confgen-existed is-sskcp-confgen-existed
 is-dns-confgen-existed:
-	((test -d $(DNS_CONFGEN)) && echo "$(DNS_CONFGEN) exists") || (echo "$(DNS_CONFGEN) does NOT exist") 
-	((test -e $(DNS_CONFGEN_ZIP)) && echo "$(DNS_CONFGEN_ZIP) exists") || (echo "$(DNS_CONFGEN_ZIP) does NOT exist") 
+	./existed.sh $(DNS_CONFGEN)
+	./existed.sh $(DNS_CONFGEN_ZIP)
 
 is-sskcp-confgen-existed:
-	((test -d $(SSKCP_CONFGEN)) && echo "$(SSKCP_CONFGEN) exists") || (echo "$(SSKCP_CONFGEN) does NOT exist") 
-	((test -e $(SSKCP_CONFGEN_ZIP)) && echo "$(SSKCP_CONFGEN_ZIP) exists") || (echo "$(SSKCP_CONFGEN_ZIP) does NOT exist") 
+	./existed.sh $(SSKCP_CONFGEN) 
+	./existed.sh $(SSKCP_CONFGEN_ZIP) 
 
 .PHONY: is-dns-api-existed is-sskcp-api-existed
 is-dns-api-existed:
-	((test -d $(DNS_API)) && echo "$(DNS_API) exists") || (echo "$(DNS_API) does NOT exist") 
-	((test -e $(DNS_API_ZIP)) && echo "$(DNS_API_ZIP) exists") || (echo "$(DNS_API_ZIP) does NOT exist") 
+	./existed.sh $(DNS_API) 
+	./existed.sh $(DNS_API_ZIP) 
 
 is-sskcp-api-existed:
-	((test -d $(SSKCP_API)) && echo "$(SSKCP_API) exists") || (echo "$(SSKCP_API) does NOT exist") 
-	((test -e $(SSKCP_API_ZIP)) && echo "$(SSKCP_API_ZIP) exists") || (echo "$(SSKCP_API_ZIP) does NOT exist") 
+	./existed.sh $(SSKCP_API) 
+	./existed.sh $(SSKCP_API_ZIP) 
 
 .PHONY: is-info-existed is-info-valid
 is-info-valid: $(POWTER_SERVER_INFO)
@@ -36,7 +36,22 @@ else
 endif
 
 is-info-existed:
-	((test -e $(POWTER_SERVER_INFO)) && echo "$(POWTER_SERVER_INFO) exists") || (echo "$(POWTER_SERVER_INFO) does NOT exist") 
+	./existed.sh $(POWTER_SERVER_INFO) 
+
+.PHONY: is-ququed-info-existed is-queued-info-valid
+is-queued-info-valid: $(QUEUED_INFO)
+	./confmgr.py validate --info $(QUEUED_INFO)
+
+is-queued-info-existed:
+	./existed.sh $(QUEUED_INFO)
+
+.PHONY: is-config-existed is-queued-config-existed
+is-config-existed:
+	./existed.sh $(POWTER_SERVER_CONF)
+
+is-queued-config-existed:
+	./existed.sh $(QUEUED_CONF)
+
 
 .PHONY: test-files test-server-dir
 test-files: test-dns test-sskcp is-info-existed
@@ -47,13 +62,14 @@ test-server-dir:
 test-dns: is-dns-image-existed is-dns-confgen-existed is-dns-api-existed
 test-sskcp: is-sskcp-image-existed is-sskcp-confgen-existed is-sskcp-api-existed
 
+.PHONY: test-config test-queued-config
+test-config: is-config-existed
+test-queued-config: is-queued-config-existed
 
+.PHONY: test-info test-queued-info
+test-info: is-info-existed
+test-queued-info: is-queued-info-existed
 
-.PHONY: test-config test-restore test-remove
-test-config: $(POWTER_SERVER_CONF)
-	tree $(POWTER_SERVER_CONF)
-
-test-restore:
-	((test -d $(POWTER_SERVER_CONF)) && echo "$(POWTER_SERVER_CONF) exists") || (echo "$(POWTER_SERVER_CONF) does NOT exist") 
-
-test-remove: test-server-dir is-info-existed is-dns-image-existed is-sskcp-image-existed
+.PHONY: test-services
+test-services:
+	docker ps -a | grep powter || true

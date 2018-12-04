@@ -1,6 +1,6 @@
 statefile = $(CURDIR)/.state.conf
 include $(statefile)
-ss = INIT PREPARED CONFIGURED RUNNING
+ss = INIT PREPARED CONFGENED CONFREADY CONFQUEUED RUNNING
 
 .PHONY: $(isstate) $(setstate)
 isstate: $(addprefix is_, $(ss))
@@ -16,5 +16,8 @@ get_state:
 is_INIT_PREPARED:
 	make -f sm.mk is_INIT || make -f sm.mk is_PREPARED
 
-is_PREPARED_CONFIGURED:
-	make -f sm.mk is_PREPARED || make -f sm.mk is_CONFIGURED 
+is_PREPARED_CONFGENED:
+	make -f sm.mk is_PREPARED || make -f sm.mk is_CONFGENED 
+
+is_RUNNING_CONFQUEUED:
+	make -f sm.mk is_RUNNING || make -f sm.mk is_CONFQUEUED 

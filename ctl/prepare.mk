@@ -40,6 +40,7 @@ download-confgens: dl-dns-confgen dl-sskcp-confgen
 .PHONY: geninfo reset-info
 geninfo:
 	./confmgr.py mergeinfo --dns $(DNS_CONFGEN)/dns-proxy-info.yml --sskcp $(SSKCP_CONFGEN)/sskcp-server-info.yml --info $(POWTER_SERVER_INFO) 
+	cp $(POWTER_SERVER_INFO) $(QUEUED_INFO)
 
 
 resetinfo: geninfo
