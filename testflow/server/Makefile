@@ -1,11 +1,5 @@
 prepare:
 		echo "make prepare successfully!"
-test_prepare:
-		echo "make test_prepare successfully!"
-config: 
-		ls ${INFO}
-test_config:
-		echo "make test_config successfully!"
 start:
 		echo "make start successfully!"
 restart:
@@ -14,20 +8,6 @@ stop:
 		echo "make stop successfully!"
 status:
 		echo "make status successfully!"
-test_info:
-		echo "make prepare INFO=${INFO} successfully!"
-start_dns:
-		echo "make start_dns successfully!"
-start_sskcp:
-		echo "make start_sskcp successfully!"
-start_bypass:
-		echo "make start_bypass successfully!"
-stop_dns:
-		echo "make stop_dns successfully!"
-stop_sskcp:
-		echo "make stop_sskcp successfully!"
-stop_bypass:
-		echo "make stop_bypass successfully!"
 status_dns:
 		echo "make status_dns successfully!"
 status_sskcp:
@@ -40,19 +20,60 @@ restart_sskcp:
 		echo "make restart_sskcp successfully!"
 restart_bypass:
 		echo "make restart_bypass successfully!"
-uninstall:
-		echo "make uninstall successfully!"
 remove:
 		echo "make remove successfully!"
-test_remove:
-		echo "make test_remove successfully!"
-reset:
-		echo "make reset successfully!"
-restore:
-		echo "make restore successfullly!"
-test_restore:
-		echo "make test_restore successfully!"
+install:
+		echo "make install successfully!"
+uninstall:
+		echo "make uninstall sucessfully!"
+gen_config:
+		echo "make gen_conf successfully!"
+
+set_config:
+		echo "make set_conf successfully!"
+
+restore_config:
+		echo "make restore_conf successfully!"
+
+rm_config:
+		echo "make rm_conf successfully!"
+
+get_state:
+		echo "make get_state successfully!"
+
+pop_config:
+		echo "make pop_config successfully!"
+
 showconf:
 		echo "make showconf successfully!"
+
+showinfo:
+		echo "make showinfo successfully!"
+
+show_queued_info:
+		echo "make show_queued_info successfully!"
+
+show_queued_conf:
+		echo "make show_queued_conf successfully!"
+
+test_state:
+		echo "make test_state successfully!"
+
+update:
+		echo "make update successfully!"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
