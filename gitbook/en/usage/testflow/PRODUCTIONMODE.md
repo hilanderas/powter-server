@@ -1,37 +1,5 @@
 # Test flow in production mode
 
-### Login server and install dependency
-* Update system
-```bash
-sudo apt update -y
-```
-
-* Install `make` `tree` `unzip` `iftop`
-```bash
-sudo apt install build-essential tree unzip iftop -y
-```
-
-* Install docker-ce
-```bash
-sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable'
-sudo apt update -y
-sudo apt install docker-ce -y
-sudo usermod -aG docker $USER
-```
-
-* Install docker-compose
-```bash
-sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-docker-compose --version
-```
-* Reboot server
-```bash
-sudo reboot
-```
-
 ###  Download powter-server testflow packages
 ```bash
 wget https://github.com/hilanderas/powter-server/releases/download/0.1.2/powter-server-testflow-0.1.2.zip
