@@ -1,5 +1,5 @@
 #!make
-include .env powter-server.mk
+include .env
 
 .PHONY: test_install test_uninstall test_installafteruninstall test_reinstall test_reuninstall 
 ifeq ($(TESTMODE),dev)

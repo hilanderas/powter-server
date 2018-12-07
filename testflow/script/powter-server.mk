@@ -1,6 +1,6 @@
 #!make 
 
-include .powter-server.env basic.mk
+include .powter-server.env
 LIB_PS=.powter-server.env
 
 netflow:

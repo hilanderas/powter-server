@@ -1,5 +1,4 @@
 #!make
-include Makefile
 
 .PHONY: test_init test_prepared test_conf_generated test_conf_ready test_conf_queued test_running
 
