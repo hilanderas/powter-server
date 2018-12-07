@@ -2,8 +2,8 @@
 
 ###  Download powter-server testflow packages
 ```bash
-wget https://github.com/hilanderas/powter-server/releases/download/0.1.2/powter-server-testflow-0.1.2.zip
-unzip powter-server-testflow-0.1.2.zip
+wget https://github.com/hilanderas/powter-server/releases/download/0.1.3/powter-server-testflow-0.1.3.zip
+unzip powter-server-testflow-0.1.3.zip
 ```
 [Check releases page for other versions](https://github.com/hilanderas/powter-server/releases)
 
