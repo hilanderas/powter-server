@@ -1,51 +1,124 @@
-#!make 
-include .env
-LIB=".env"
+#!make
+include .env  main.mk 
+.PHONY: test_prepare test_remove
+test_prepare:
+	make hint CONTENT="test prepare"
+	cd ${TEST_PROJ} && make prepare
+	make confirm
 
-.PHONY: download rm_download
-download:
-	wget https://github.com/hilanderas/${PROJECT}/releases/download/${VERSION}/${PROJECT}-${VERSION}.zip
-	unzip ${PROJECT}-${VERSION}.zip
-
-rm_download:
-	rm -rf ${PROJECT}*
-
-
-.PHONY: config read_config init_config 
-config: 
-	sed -i '/TEST_PROJ/c\export TEST_PROJ=${TEST_PROJ}' ${LIB}
-
-read_config:
-	cat ${LIB} | grep "TEST_PROJ"
-
-init_config: 
-	sed -i '/TEST_PROJ/c\export TEST_PROJ=${TEST_PROJ}' ${LIB}
-
-.PHONY: reset_env
-reset_env:
-	sed -i '/TEST_PROJ/c\export TEST_PROJ=' ${LIB}
-	sed -i '/TESTMODE/c\export TESTMODE=' ${LIB}
-	cat ${LIB}
-
-.PHONY: set_mod read_mod 
-set_mod:
-	sed -i '/TESTMODE/c\export TESTMODE=${TESTMODE}' ${LIB}
-read_mod:
-	printenv TESTMODE
+test_remove:
+	make hint CONTENT="test remove"
+	cd ${TEST_PROJ} && make remove
+	make confirm 
 
 
-.PHONY: hint confirm re_boot
-hint:
-		GREEN='\033[0;32m'
-		NC='\033[0m' # No Color
-		printf "${GREEN}=================================${NC}\n"
-		printf "${GREEN}${CONTENT}${NC}\n"
-		printf "${GREEN}=================================${NC}\n"
+.PHONY: test_install test_uninstall test_update
+test_install:
+	make hint CONTENT="test install"
+	cd ${TEST_PROJ} && make install
+	make confirm
+test_uninstall:
+	make hint CONTENT="test uninstall"
+	cd ${TEST_PROJ} && make uninstall
+	make confirm
+test_update:
+	make hint CONTENT="test update"
+	cd ${TEST_PROJ} && make update
+	make confirm
 
-confirm:
-		@( read -p "Are you sure?!? [y/N]: " sure && case "$$sure" in [yY]) true;; *) false;; esac )
-
-re_boot:
-		sudo reboot
 
 
+.PHONY: test_genconf test_setconf test_restoreconf test_rmconf
+test_genconf:
+	make hint CONTENT="test genconf"
+	cd ${TEST_PROJ} && make gen_config 
+	make confirm 
+
+test_setconf:
+	make hint CONTENT="test setconf"
+	cd ${TEST_PROJ} && make set_config 
+	make confirm 
+
+test_rmconf:	
+	make hint CONTENT="test rmconfig"
+	cd ${TEST_PROJ} && make rm_config
+	make confirm 
+
+test_popconf:
+	make hint CONTENT="test popconfig"
+	cd ${TEST_PROJ} && make pop_config
+	make confirm 
+
+test_restoreconf:
+	make hint CONTENT="test restoreconf"
+	cd ${TEST_PROJ} && make restore_config
+	make confirm 
+
+
+
+.PHONY: test_start test_stop test_restart test_restart_sskcp test_restart_dns test_restart_bypass
+test_start: 
+	make hint CONTENT="test start"	
+	cd ${TEST_PROJ} && make start
+	make confirm 
+
+test_stop:
+	make hint CONTENT="test stop"
+	cd ${TEST_PROJ} && make stop
+	make confirm 
+
+test_restart:	
+	make hint CONTENT="test restart"
+	cd ${TEST_PROJ} && make restart
+	make confirm 
+		
+test_restart_sskcp:
+	make hint CONTENT="test restart sskcp"
+	cd ${TEST_PROJ} && make restart_sskcp
+	make confirm
+
+test_restart_dns:
+	make hint CONTENT="test restart dns"
+	cd ${TEST_PROJ} && make restart_dns
+	make confirm 
+
+test_restart_bypass:
+	make hint CONTENT="test restart bypass"
+	cd ${TEST_PROJ} && make restart_bypass
+	make confirm 
+
+.PHONY: test_status test_state
+test_status:
+	make hint CONTENT="test status"
+	cd ${TEST_PROJ} && make status
+	make confirm 
+
+test_status_sskcp:
+	make hint CONTENT="test status sskcp"
+	cd ${TEST_PROJ} && make status_sskcp
+	make confirm 
+
+test_status_dns:
+	make hint CONTENT="test status dns"
+	cd ${TEST_PROJ} && make status_dns
+	make confirm 
+
+test_status_bypass:
+	make hint CONTENT="test status bypass"
+	cd ${TEST_PROJ} && make status_bypass
+	make confirm 
+
+test_test_state:
+	make hint CONTENT="test test state"
+	cd ${TEST_PROJ} && make test_state
+	make confirm 
+
+.PHONY: test_showconf test_showinfo
+test_showconf:
+	make hint CONTENT="test showconf"
+	cd ${TEST_PROJ} && make showconf
+	make confirm 
+test_showinfo:
+	make hint CONTENT="test showinfo"
+	cd ${TEST_PROJ} && make showinfo
+	make confirm 
