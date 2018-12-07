@@ -10,7 +10,7 @@ unzip powter-server-testflow-0.1.2.zip
 ### Download powter-server packages
 ```bash
 cd powter-server-testflow
-make download
+make -f main.mk download
 ```
 
 ### Config test environment
@@ -18,64 +18,43 @@ make download
 
 * Set project path, info file path and lan port 
 ```bash
-make config PROJ=[PROJECT] IFACE=[IFACE]
+make -f main.mk config TEST_PROJ=[PROJECT]
+make -f powter-server.mk config IFACE=[IFACE] TEST_INFO=[TEST_INFO]
 ```
 Description of each attribute:
-* `PROJ`: Path of `power-server`
+* `TEST_PROJ`: Path of `power-server`
 * `IFACE`: Interface of server
+* `TEST_INFO`: Path of info.yml
 
 	e.g,
 ```bash
-make config PROJ=$PWD/powter-server IFACE=eth0
+make -f main.mk config TEST_PROJ=$PWD/powter-server 
+make -f powter-server.mk config IFACE=eth0 TEST_INFO=$PWD/../info
 ```
 
 * Check configuration
 ```bash
-make -s read_config
+make -s -f main.mk read_config
+make -s -f powter-server.mk read_config
 ```
 
-### Run test flow
+### Run test cases
 
-* Preparation before test
+* Run installation cases
 ```bash
-make test_prepare
+ make -s -f function.mk install
+ make -s -f function.mk uninstall
+ make -s -f function.mk installafteruninstall
+ make -s -f function.mk reinstall
+ make -s -f function.mk reuninstall
 ```
-* Update `info.yml` to meet your test environment
-
-* Install
+* Run restart cases
 ```bash
-make test_install INFO=$PWD/info.yml
+ make -s -f function.mk reboot_p1
+ make -s -f function.mk reboot_p2
+ make -s -f function.mk restartall
 ```
-
-* Uninstall
+* Run update cases
 ```bash
-make test_uninstall
-```
-
-* Install after uninstall
-```bash
-make test_installafteruninstall
-```
-
-* Reinstall
-```bash
-make test_reinstall
-```
-
-* Reuninstall
-```bash
-make test_reuninstall
-```
-
-* Test other scenarios
-	* test_before_reboot  
-	* test_after_reboot 
-	* test_restartall 
-	* test_updateconf_dns 
-	* test_updateconf_sskcp
-	* test_checkconfig
-
-* Clean up
-```bash
-make cleanup
+make -s -f function.mk updateconf
 ```

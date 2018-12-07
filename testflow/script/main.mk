@@ -4,8 +4,8 @@ LIB=".env"
 
 .PHONY: download rm_download
 download:
-	wget https://github.com/hilanderas/${PROJECT}/releases/download/${VERSION}/${PROJECT}-${VERSION}.zip
-	unzip ${PROJECT}-${VERSION}.zip
+	wget https://github.com/hilanderas/${PROJECT}/releases/download/${PROJ_VERSION}/${PROJECT}-${PROJ_VERSION}.zip
+	unzip ${PROJECT}-${PROJ_VERSION}.zip
 
 rm_download:
 	rm -rf ${PROJECT}*
@@ -15,11 +15,12 @@ rm_download:
 config: 
 	sed -i '/TEST_PROJ/c\export TEST_PROJ=${TEST_PROJ}' ${LIB}
 
+
 read_config:
 	cat ${LIB} | grep "TEST_PROJ"
 
 .PHONY: reset_env
-reset_env:
+reset_config:
 	sed -i '/TEST_PROJ/c\export TEST_PROJ=../../ctl' ${LIB}
 	sed -i '/TESTMODE/c\export TESTMODE=dev' ${LIB}
 	cat ${LIB}

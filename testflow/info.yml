@@ -1,13 +1,33 @@
 dns-proxy:
-  DNSPORT: 12345:12356
+  DNSPORT: 16350:16370
   WAN: enp0s25
 sskcp:
   server:
-  - key: test1
-    listenport: 7010
-    log-dir: /home/USER/log
+  - key: test
+    listenport: 4201
+    log-dir: /home/qa/log
     mode: sskcp
-  - key: test2
-    listenport: 7020
-    log-dir: /home/USER/log
+  - key: test
+    listenport: 4202
+    log-dir: /home/qa/log
     mode: sskcp
+  - key: test
+    listenport: 4203
+    log-dir: /home/qa/log
+    mode: sskcp
+  - key: test
+    listenport: 4204
+    log-dir: /home/qa/log
+    mode: sskcp
+
+
+
+
+
+
+
+
+
+
+
+

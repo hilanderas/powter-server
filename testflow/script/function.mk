@@ -1,5 +1,5 @@
 #!make
-include Makefile  powter-server.mk
+include .env powter-server.mk
 
 .PHONY: test_install test_uninstall test_installafteruninstall test_reinstall test_reuninstall 
 ifeq ($(TESTMODE),dev)
@@ -46,7 +46,7 @@ reuninstall:
 	make -f powter-server.mk netflow 
 else
 install uninstall installafteruninstall reinstall reuninstall: 
-	make -s hint CONTENT="Please set test mode to either dev or prod!"
+	make -s -f main.mk hint CONTENT="Please set test mode to either dev or prod!"
 endif
 
 
@@ -57,7 +57,7 @@ reboot_p1:
 	make  re_boot
 else
 reboot_p1 : 
-	make -s hint CONTENT="Please set test mode to either dev or prod!"
+	make -s -f main.mk hint CONTENT="Please set test mode to either dev or prod!"
 endif
 
 
@@ -85,7 +85,7 @@ restartall:
 	make test_uninstall
 else
 reboot_p2 restartall : 
-	make -s hint CONTENT="Please set test mode to either dev or prod!"
+	make -s -f main.mk hint CONTENT="Please set test mode to either dev or prod!"
 endif
 
 	
@@ -104,7 +104,7 @@ updateconf:
 	make test_uninstall
 else
 updateconf:
-	make -s hint CONTENT="Please set test mode to either dev or prod!"
+	make -s -f main.mk hint CONTENT="Please set test mode to either dev or prod!"
 endif
 
 
