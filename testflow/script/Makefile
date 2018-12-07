@@ -15,7 +15,9 @@ test_remove:
 test_install:
 	make -f basic.mk hint CONTENT="test install"
 	make -C ${TEST_PROJ} install INFO=${TEST_INFO} || true
+	make test_status
 	make test_test_state
+	
 
 test_uninstall:
 	make -f basic.mk hint CONTENT="test uninstall"

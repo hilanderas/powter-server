@@ -81,7 +81,7 @@ restartall:
 	make test_install
 	make test_restart
 	make test_status
-	make-f powter-server.mk netflow
+	make -f powter-server.mk netflow
 	make test_uninstall
 else
 reboot_p2 restartall : 

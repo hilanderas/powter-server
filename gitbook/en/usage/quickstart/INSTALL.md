@@ -2,8 +2,8 @@
 
 ### Download powter-server and unzip
 ```bash
-wget  https://github.com/hilanderas/powter-server/releases/download/0.1.2/powter-server-0.1.2.zip
-unzip powter-server-0.1.2.zip
+wget  https://github.com/hilanderas/powter-server/releases/download//powter-server-.zip
+unzip powter-server-.zip
 ```
 
 ### Install powter-server

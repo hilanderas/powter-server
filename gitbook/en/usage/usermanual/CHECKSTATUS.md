@@ -1,16 +1,16 @@
 # Check status
 
-* Check all services status, iptables after installation 
+* Check all services status after installation 
 ```bash
 make status
 ``` 
 
-* Check dns service status, iptables after installation 
+* Check dns-proxy service status after installation 
 ```bash
 make status_dns
 ``` 
 
-* Check sskcp service status and docker logs after installation 
+* Check sskcp service status after installation 
 ```bash
 make status_sskcp
 ``` 

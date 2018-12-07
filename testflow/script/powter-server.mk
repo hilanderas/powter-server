@@ -6,7 +6,7 @@ LIB_PS=.powter-server.env
 netflow:
 	make -f basic.mk hint CONTENT="Please open a browser on pc connected to router and start surfing......."
 	make -f basic.mk confirm
-	sudo iftop -i ${IFACE} -NnP -t -s 1
+	sudo iftop -i ${IFACE} -NnP -t -s 10
 	make -f basic.mk confirm
 
 config:

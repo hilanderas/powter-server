@@ -2,23 +2,50 @@
 
 `info` is used to customize user configuration of services. Users can modify it to meet their own requirements. 
 
+There are 2 kinds of `info` in system
+* info.yml - For service starting 
+* info.queued.yml - For replacing info.yml
+
+### Show info
+* Show info 
+```bash
+make showinfo
+```
+
+* Show queued info
+```bash
+make show_queued_info
+```
+
+### Reset info to default.
+
+```bash
+make reset_info
+```
+
 
 ### `info` template 
 ```yml
 dns-proxy:
-  DNSPORT: 12345:12356
-  WAN: enp0s25
+  DNSPORT: 16350:16370
+  WAN: eth0
 sskcp:
   server:
-    - {key: test, listenport: 7201, log-dir: /home/USER/log, mode: sskcp}
-    - {key: test, listenport: 7202, log-dir: /home/USER/log, mode: sskcp}
-    - {key: test, listenport: 7203, log-dir: /home/USER/log, mode: sskcp}
-    - {key: test, listenport: 7204, log-dir: /home/USER/log, mode: sskcp}
+  - key: test
+    listenport: 4201
+    log-dir: /home/ubuntu/log
+    mode: sskcp
+  - key: test
+    listenport: 4202
+    log-dir: /home/ubuntu/log
+    mode: sskcp
+  - key: test
+    listenport: 4203
+    log-dir: /home/ubuntu/log
+    mode: sskcp
+  - key: test
+    listenport: 4204
+    log-dir: /home/ubuntu/log
+    mode: sskcp
 ```
-`info` is yaml file and you can test whether it is ok with below command:
-```
-cd powter-server
-make test_info INFO=path/to/info
-```
-
-Detailed info about how to modify `info` of [dns-proxy](https://elespejo.github.io/dns-proxy/usage/GENCONF.html), [sskcp](https://elespejo.github.io/sskcp/usage/GENCONF.html) 
+`info` is yaml file, check detailed info about how to modify `info` of [dns-proxy](https://elespejo.github.io/dns-proxy/usage/GENCONF.html), [sskcp](https://elespejo.github.io/sskcp/usage/GENCONF.html) 
