@@ -409,25 +409,16 @@ make <span class="hljs-_">-f</span> basic.mk download
 </code></pre>
 <h3 id="config-test-environment">Config test environment</h3>
 <ul>
-<li><p>Update <code>info.yml</code> in <code>powter-server-testflow</code> to meet your test environment</p>
-</li>
-<li><p>Set project path, info file path and lan port </p>
-<pre><code class="lang-bash">make <span class="hljs-_">-f</span> basic.mk config TEST_PROJ=[PROJECT]
-make <span class="hljs-_">-f</span> powter-server.mk config IFACE=[IFACE] TEST_INFO=[TEST_INFO]
+<li>Set lan port <pre><code class="lang-bash">make <span class="hljs-_">-f</span> powter-server.mk config IFACE=[IFACE]
 </code></pre>
-<p>Description of each attribute:</p>
-</li>
-<li><code>TEST_PROJ</code>: Path of <code>power-server</code></li>
-<li><code>IFACE</code>: WAN of server</li>
-<li><p><code>TEST_INFO</code>: Path of info.yml</p>
+Description of the attribute:</li>
+<li><p><code>IFACE</code>: WAN of server</p>
 <p>  e.g,</p>
-<pre><code class="lang-bash">make <span class="hljs-_">-f</span> basic.mk config TEST_PROJ=<span class="hljs-variable">$PWD</span>/powter-server 
-make <span class="hljs-_">-f</span> powter-server.mk config IFACE=eth0 TEST_INFO=<span class="hljs-variable">$PWD</span>/info.yml
+<pre><code class="lang-bash">make <span class="hljs-_">-f</span> powter-server.mk config IFACE=eth0
 </code></pre>
 </li>
 <li><p>Check configuration</p>
-<pre><code class="lang-bash">make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> basic.mk <span class="hljs-built_in">read</span>_config
-make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> powter-server.mk <span class="hljs-built_in">read</span>_config
+<pre><code class="lang-bash">make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> powter-server.mk <span class="hljs-built_in">read</span>_config
 </code></pre>
 </li>
 </ul>
@@ -492,7 +483,7 @@ make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> function.mk r
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Production mode","level":"5.2","depth":1,"next":{"title":"Trouble shooting","level":"6.1","depth":1,"path":"faq/TROUBLESHOOTING.md","ref":"faq/TROUBLESHOOTING.md","articles":[]},"previous":{"title":"Develop mode","level":"5.1","depth":1,"path":"usage/testflow/DEVELOPMODE.md","ref":"usage/testflow/DEVELOPMODE.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"usage/testflow/PRODUCTIONMODE.md","mtime":"2018-12-07T11:15:04.113Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-07T11:39:32.470Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Production mode","level":"5.2","depth":1,"next":{"title":"Trouble shooting","level":"6.1","depth":1,"path":"faq/TROUBLESHOOTING.md","ref":"faq/TROUBLESHOOTING.md","articles":[]},"previous":{"title":"Develop mode","level":"5.1","depth":1,"path":"usage/testflow/DEVELOPMODE.md","ref":"usage/testflow/DEVELOPMODE.md","articles":[]},"dir":"ltr"},"config":{"plugins":["video"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"video":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"usage/testflow/PRODUCTIONMODE.md","mtime":"2018-12-10T04:03:37.179Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-10T04:07:37.131Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>
