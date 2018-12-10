@@ -8,7 +8,7 @@
 </p>
 <br>
 
-[![GitHub release](https://img.shields.io/github/release/hilanderas/powter-server.svg)](https://github.com/hilanderas/powter-server/releases)
+[![GitHub release](https://img.shields.io/github/release-pre/hilanderas/powter-server.svg)](https://github.com/hilanderas/powter-server/releases)
 ![Github All Releases](https://img.shields.io/github/downloads/hilanderas/powter-server/total.svg)
 ![Travis (.org) branch](https://img.shields.io/travis/hilanderas/powter-server.svg)
 ![GitHub](https://img.shields.io/github/license/hilanderas/powter-server.svg)
