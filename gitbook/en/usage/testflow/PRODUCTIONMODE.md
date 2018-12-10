@@ -2,8 +2,8 @@
 
 ###  Download powter-server testflow packages
 ```bash
-wget https://github.com/hilanderas/powter-server/releases/download//powter-server-testflow-.zip
-unzip powter-server-testflow-.zip
+wget https://github.com/hilanderas/powter-server/releases/download/0.1.3/powter-server-testflow-0.1.3.zip
+unzip powter-server-testflow-0.1.3.zip
 ```
 [Check releases page for other versions](https://github.com/hilanderas/powter-server/releases)
 
@@ -14,27 +14,20 @@ make -f basic.mk download
 ```
 
 ### Config test environment
-* Update `info.yml` in `powter-server-testflow` to meet your test environment
-
-* Set project path, info file path and lan port 
+* Set lan port 
 ```bash
-make -f basic.mk config TEST_PROJ=[PROJECT]
-make -f powter-server.mk config IFACE=[IFACE] TEST_INFO=[TEST_INFO]
+make -f powter-server.mk config IFACE=[IFACE]
 ```
-Description of each attribute:
-* `TEST_PROJ`: Path of `power-server`
+Description of the attribute:
 * `IFACE`: WAN of server
-* `TEST_INFO`: Path of info.yml
 
 	e.g,
 ```bash
-make -f basic.mk config TEST_PROJ=$PWD/powter-server 
-make -f powter-server.mk config IFACE=eth0 TEST_INFO=$PWD/info.yml
+make -f powter-server.mk config IFACE=eth0
 ```
 
 * Check configuration
 ```bash
-make -s -f basic.mk read_config
 make -s -f powter-server.mk read_config
 ```
 

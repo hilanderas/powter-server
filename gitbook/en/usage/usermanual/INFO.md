@@ -17,8 +17,7 @@ make showinfo
 make show_queued_info
 ```
 
-### Reset info to default.
-
+### Reset info to default
 ```bash
 make reset_info
 ```
@@ -48,4 +47,4 @@ sskcp:
     log-dir: /home/ubuntu/log
     mode: sskcp
 ```
-`info` is yaml file, check detailed info about how to modify `info` of [dns-proxy](https://elespejo.github.io/dns-proxy/usage/GENCONF.html), [sskcp](https://elespejo.github.io/sskcp/usage/GENCONF.html) 
+** `info` is yaml file, check detailed info about how to modify `info` of [dns-proxy](https://elespejo.github.io/dns-proxy/usage/GENCONF.html), [sskcp](https://elespejo.github.io/sskcp/usage/GENCONF_SERVER.html)**
