@@ -1,4 +1,5 @@
 # Deployment
+{% video %}https://vimeo.com/305874200{% endvideo %}
 
 ### Download powter-server and unzip
 ```bash
