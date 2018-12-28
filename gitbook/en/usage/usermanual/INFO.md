@@ -30,21 +30,7 @@ dns-proxy:
   WAN: eth0
 sskcp:
   server:
-  - key: test
-    listenport: 4201
-    log-dir: /home/ubuntu/log
-    mode: sskcp
-  - key: test
-    listenport: 4202
-    log-dir: /home/ubuntu/log
-    mode: sskcp
-  - key: test
-    listenport: 4203
-    log-dir: /home/ubuntu/log
-    mode: sskcp
-  - key: test
-    listenport: 4204
-    log-dir: /home/ubuntu/log
-    mode: sskcp
+		- { key: test, listenport: 7010, log-dir: /home/USER/snmplog, mode: sskcp }
+		- { key: test, listenport: 7020, log-dir: /home/USER/snmplog, mode: sskcp }
 ```
 ** `info` is yaml file, check detailed info about how to modify `info` of [dns-proxy](https://elespejo.github.io/dns-proxy/usage/GENCONF.html), [sskcp](https://elespejo.github.io/sskcp/usage/GENCONF_SERVER.html)**

@@ -6,9 +6,10 @@
 wget  https://github.com/hilanderas/powter-server/releases/download/0.1.3/powter-server-0.1.3.zip
 unzip powter-server-0.1.3.zip
 ```
+### Check info for installation
+An `info` file will pop up during installation, update `USER`, `WAN` and enter `:wq` to save and quit, click [here](../usermanual/INFO.md) to get more details about info.
 
 ### Install powter-server
-A `info` file will pop up during installation, update `USER`, `WAN` and enter `:wq` to save and quit
 ```bash
 cd powter-server
 make install
