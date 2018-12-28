@@ -4,7 +4,7 @@ GITBOOK=$(CURDIR)/gitbook
 DOCS=$(CURDIR)/docs
 TESTFLOW=$(project)-testflow
 
-.PHONY: build_book
+.PHONY: build-book
 build-book: $(GITBOOK)
 	gitbook build $(GITBOOK) $(DOCS)
 	sed -i 's/http:\/\/player.vimeo.com/https:\/\/player.vimeo.com/g' docs/en/usage/quickstart/INSTALL.html
