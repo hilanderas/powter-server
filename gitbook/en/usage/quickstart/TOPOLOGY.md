@@ -1,7 +1,7 @@
 # Topology
 
 <p align="center">
-  <img src="https://www.lucidchart.com/publicSegments/view/a1863984-dd69-4ff4-bcad-f031b768fdea/image.png">
+  <img src="https://www.lucidchart.com/publicSegments/view/80f55abd-895e-4885-bca6-0c5338e38981/image.png">
 </p>
 
 
