@@ -7,22 +7,22 @@
 * [About the project](overview/PROJECT.md)
 
 ### Quick start
-* [Topology](usage/quickstart/TOPOLOGY.md)
-* [Dependency](usage/quickstart/DEPENDENCY.md)
-* [Install](usage/quickstart/INSTALL.md)
-* [Update](usage/quickstart/UPDATE.md)
-* [Uninstall](usage/quickstart/UNINSTALL.md)
+* [Topology](quickstart/TOPOLOGY.md)
+* [Dependency](quickstart/DEPENDENCY.md)
+* [Install](quickstart/INSTALL.md)
+* [Update](quickstart/UPDATE.md)
+* [Uninstall](quickstart/UNINSTALL.md)
 
 ### More scenarios
-* [How to check info](usage/usermanual/INFO.md)
-* [How to manipulate conf](usage/usermanual/CONF.md)
-* [How to manipulate services](usage/usermanual/SERVICES.md)
-* [How to get states](usage/usermanual/GETSTATES.md)
-* [How to check status](usage/usermanual/CHECKSTATUS.md)
+* [How to check info](usermanual/INFO.md)
+* [How to manipulate conf](usermanual/CONF.md)
+* [How to manipulate services](usermanual/SERVICES.md)
+* [How to get states](usermanual/GETSTATES.md)
+* [How to check status](usermanual/CHECKSTATUS.md)
 
 ### Qa usage
-* [Develop mode](usage/testflow/DEVELOPMODE.md)
-* [Production mode](usage/testflow/PRODUCTIONMODE.md)
+* [Develop mode](testflow/DEVELOPMODE.md)
+* [Production mode](testflow/PRODUCTIONMODE.md)
 
 ### FAQ
 * [Trouble shooting](faq/TROUBLESHOOTING.md)

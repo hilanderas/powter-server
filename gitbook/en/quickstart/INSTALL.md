@@ -1,5 +1,6 @@
 # Deployment
-{% video %}https://vimeo.com/305874200{% endvideo %}
+<iframe frameborder="0" width="100%" height="450" src="https://www.dailymotion.com/embed/video/x74reht" allowfullscreen allow="autoplay"></iframe>
+Music by [Ilya Truhanov](https://icons8.com/music/author/ilya-truhanov) from [Fugue](https://icons8.com/music)
 
 ### Download powter-server and unzip
 ```bash

@@ -7,8 +7,6 @@ TESTFLOW=$(project)-testflow
 .PHONY: build-book
 build-book: $(GITBOOK)
 	gitbook build $(GITBOOK) $(DOCS)
-	sed -i 's/http:\/\/player.vimeo.com/https:\/\/player.vimeo.com/g' docs/en/usage/quickstart/INSTALL.html
-	grep vimeo docs/en/usage/quickstart/INSTALL.html
 
 .PHONY: build
 build:
@@ -29,9 +27,9 @@ build-testflow:
 	rm -rf $(TESTFLOW)
 
 update-gitbook: $(GITBOOK) check_parameter
-	sed -i s/[0-9][.][0-9][.][0-9]/$(CUR)/g $(CURDIR)/gitbook/en/usage/testflow/PRODUCTIONMODE.md
+	sed -i s/[0-9][.][0-9][.][0-9]/$(CUR)/g $(CURDIR)/gitbook/en/testflow/PRODUCTIONMODE.md
 	sed -i s/[0-9][.][0-9][.][0-9]/$(CUR)/g $(CURDIR)/gitbook/en/SUMMARY.md
-	sed -i s/[0-9][.][0-9][.][0-9]/$(CUR)/g $(CURDIR)/gitbook/en/usage/quickstart/INSTALL.md
+	sed -i s/[0-9][.][0-9][.][0-9]/$(CUR)/g $(CURDIR)/gitbook/en/quickstart/INSTALL.md
 	grep -R $(CUR) gitbook
 
 build-doc: update-gitbook build-book

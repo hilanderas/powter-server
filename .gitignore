@@ -4,3 +4,4 @@ powter-server*.zip
 ctl/server
 powter-server-testflow
 powter-server
+node_modules
