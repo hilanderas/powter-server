@@ -35,6 +35,6 @@ update-gitbook: $(GITBOOK) check_parameter
 build-doc: update-gitbook build-book
 
 check_parameter:
-	echo "Usage: update-gitbook CUR=0.5.0"
+	echo "Usage: update-gitbook CUR=$(CUR)"
 	test $(CUR)
 

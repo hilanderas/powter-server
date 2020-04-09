@@ -4,8 +4,8 @@ Music by [Ilya Truhanov](https://icons8.com/music/author/ilya-truhanov) from [Fu
 
 ### Download powter-server and unzip
 ```bash
-wget  https://github.com/hilanderas/powter-server/releases/download/0.1.3/powter-server-0.1.3.zip
-unzip powter-server-0.1.3.zip
+wget  https://github.com/hilanderas/powter-server/releases/download/0.2.0/powter-server-0.2.0.zip
+unzip powter-server-0.2.0.zip
 ```
 ### Check info for installation
 An `info` file will pop up during installation, update `USER`, `WAN` and enter `:wq` to save and quit, click [here](../usermanual/INFO.md) to get more details about info.

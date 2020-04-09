@@ -1,6 +1,6 @@
 # SUMMARY
 
-* [Introduction powter-server-0.1.3](README.md)
+* [Introduction powter-server-0.2.0](README.md)
 
 ### Overview 
 * [Who are the users ?](overview/USER.md)
