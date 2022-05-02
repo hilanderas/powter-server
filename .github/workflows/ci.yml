@@ -21,3 +21,4 @@ jobs:
           prerelease: false
           files: |
             powter-server-*-${{ github.ref_name }}.zip
+            powter-server-${{ github.ref_name }}.zip
