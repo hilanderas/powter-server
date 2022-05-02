@@ -1,8 +1,9 @@
-version=0.1.0
+version=0.3.0
 project=powter-server
 GITBOOK=$(CURDIR)/gitbook
 DOCS=$(CURDIR)/docs
 TESTFLOW=$(project)-testflow
+CUR=0.3.0
 
 .PHONY: build-book
 build-book: $(GITBOOK)
